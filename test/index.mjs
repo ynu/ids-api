@@ -8,7 +8,7 @@ const options = {
   accessToken: ESOP_TOKEN,
 }
 
-describe('wecom-department 测试', function() {
+describe('ids-api 测试', function() {
   after(() => cache.clear());
   this.timeout(100000);
   it('idsUserById', async () => {

@@ -65,6 +65,10 @@ export const ids_grouped_users = async(userid, options = {}) => {
 export const ids_get_mobile_phone = async (userid, options) => {
   // 优先由给定的帐号获取手机号
   const result1 = await idsUserById(userid, options);
+  if (!result1) throw {
+    errcode: 1,
+    errmsg: '给定的id不存在于IDS系统中',
+  };
 
   if (result1.TELEPHONENUMBER) {
     return result1.TELEPHONENUMBER;
