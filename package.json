@@ -1,0 +1,49 @@
+{
+  "name": "ids-api",
+  "version": "7.0.0",
+  "description": "This is a Node.js project.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "doc": "yarn jsdoc src",
+    "lint": "npx eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier --check src",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ynu/webexp.git"
+  },
+  "keywords": [],
+  "author": "ITC@YNU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ynu/webexp/issues"
+  },
+  "homepage": "https://github.com/ynu/webexp#readme",
+  "devDependencies": {
+    "assert": "^2.1.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "jsdoc": "^4.0.2",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.2.5",
+    "typedoc": "^0.25.11"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "debug": "^4.3.4",
+    "figlet": "^1.7.0",
+    "inquirer": "^9.2.15",
+    "memory-cache": "^0.2.0",
+    "ora": "^8.0.1"
+  }
+}
