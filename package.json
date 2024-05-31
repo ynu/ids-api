@@ -1,5 +1,5 @@
 {
-  "name": "ids-api",
+  "name": "ynu-ids-api",
   "version": "7.0.0",
   "description": "This is a Node.js project.",
   "type": "module",
@@ -45,6 +45,6 @@
     "figlet": "^1.7.0",
     "inquirer": "^9.2.15",
     "memory-cache": "^0.2.0",
-    "ora": "^8.0.1",
+    "ora": "^8.0.1"
   }
 }
