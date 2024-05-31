@@ -2,7 +2,6 @@ import process from 'node:process';
 import axios from 'axios';
 import Debug from 'debug';
 import {getToken} from "./index.js";
-import {getSignObject} from "./utli.js";
 import FormData from 'form-data';
 
 const debug = Debug('webexp::debug');
@@ -123,7 +122,6 @@ export const modifyPwdBySelf = async (params, options = {}) => {
 export const modify = async (params, options = {}) => {
     options.host = options.host || process.env.IDS_HOST;
     options.appId = options.appId || process.env.IDS_APPID;
-    getSignObject(params, options)
     const accessToken = await getToken(options);
     debug(`${options.host}/minos-platform/user/modify`);
     const res = await axios.post(`${options.host}/minos-platform/user/modify`, {
