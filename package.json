@@ -1,6 +1,6 @@
 {
   "name": "ynu-ids-api",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "This is a Node.js project.",
   "type": "module",
   "main": "src/index.js",

@@ -65,16 +65,16 @@ describe('User用户管理', function() {
   });
 
   it('查询用户认证日志', async () => {
-    // const params = {
-    //   uid:"01119253",
-    //   loginRst:"1",
-    //   pageSize:"5",
-    //   pageNumber:"1",
-    //   randomStr:"randomStr",
-    //   timeStamp:1658300851
-    // }
-    // const res = await User.loginLog(params,{ IDS_HOST, IDS_APPID, IDS_SECRET });
-    // assert.equal(res.errcode, 0)
+    const params = {
+      uid:"test_teacher",
+      loginRst:"1",
+      pageSize:"5",
+      pageNumber:"1",
+      randomStr:"randomStr",
+      timeStamp:1658300851
+    }
+    const res = await User.loginLog(params,{ IDS_HOST, IDS_APPID, IDS_SECRET });
+    assert.equal(res.errcode, 0)
   });
 
   it('增加和修改照片', async () => {

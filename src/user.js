@@ -2,9 +2,10 @@ import process from 'node:process';
 import axios from 'axios';
 import Debug from 'debug';
 import {getToken} from "./index.js";
+import {getSignObject} from "./utli.js";
 import FormData from 'form-data';
 
-const debug = Debug('webexp::debug');
+const debug = Debug('ids::debug');
 
 /**
  * 查询用户信息
@@ -142,24 +143,23 @@ export const modify = async (params, options = {}) => {
  * @returns
  */
 export const loginLog = async (params, options = {}) => {
-    // options.host = options.host || process.env.IDS_HOST;
-    // options.appId = options.appId || process.env.IDS_APPID;
-    // const accessToken = await getToken(options)
-    // params.token = accessToken;
-    // params = getSignObject(params, options)
-    // params.pageSize = 5;
-    // params.pageNumber = 1;
-    // debug(`${options.host}/minos-manager/internal/user/queryUserLoginLog`)
-    // const res = await axios.post(`${options.host}/minos-manager/internal/user/queryUserLoginLog`, {
-    //     ...params,
-    // },{
-    //     headers: {
-    //         appId: options.appId,
-    //         accessToken: accessToken,
-    //         "content-type": 'application/x-www-form-urlencoded',
-    //     },
-    // });
-    // return res.data;
+    options.host = options.host || process.env.IDS_HOST;
+    options.appId = options.appId || process.env.IDS_APPID;
+    const accessToken = await getToken(options)
+    // 签名需要token
+    params.token = accessToken;
+    params = getSignObject(params)
+    debug(`${options.host}/minos-manager/internal/user/queryUserLoginLog`)
+    const res = await axios.post(`${options.host}/minos-manager/internal/user/queryUserLoginLog`, {
+        ...params,
+    },{
+        headers: {
+            appId: options.appId,
+            accessToken: accessToken,
+            "content-type": 'application/x-www-form-urlencoded',
+        },
+    });
+    return res.data;
 }
 
 /**
