@@ -1,6 +1,7 @@
 import process from 'node:process';
 import axios from 'axios';
 import user from './user.js';
+import task from './task.js';
 import cache from "memory-cache";
 import Debug from "debug";
 const debug = Debug('ids:debug');
@@ -60,7 +61,9 @@ export const getToken = async (options = {}) => {
 }
 
 export const User = user;
+export const Task = task;
 export default {
   getToken,
   User,
+  Task,
 };

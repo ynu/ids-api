@@ -1,4 +1,4 @@
-import CryptoJS from 'crypto-js';
+import crypto from 'crypto';
 
 /**
  * 获得签名后的对象
@@ -11,7 +11,12 @@ export function getSignObject(params) {
   // 拼接排序后的参数
   const paramsString = sortedParams.join('');
   // 使用SHA-1进行签名
-  params.sign = CryptoJS.SHA1(paramsString).toString();
+  const hash = crypto.createHash("sha1")
+  // MD5加密
+  hash.update(paramsString)
+  // 按16进制方式进行显示
+  params.sign = hash.digest('hex');
+  // console.log(hash.digest('hex'))
   // 返回新的参数对象
   return params
 }
