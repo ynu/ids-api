@@ -2,7 +2,6 @@
 import process from 'node:process';
 import assert from 'assert';
 import {Task} from '../src/index.js';
-import fs from 'fs'
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
@@ -21,26 +20,26 @@ describe('待办中心', function() {
 
     }
     // params.insertModel = [{
-    //     taskId: "",
-    //     subject: "测试",
+    //     taskId: "202406110011-3140010079-0",
+    //     subject: "yy-test",
     //     priority: 3,
     //     taskType: 3,
     //     initiatorType: 1,
-    //     initiatorId: "",
+    //     initiatorId: "3140010079",
     //     processors: [
     //         {
     //             processorType: 1,
-    //             processorId: "",
+    //             processorId: "3140010079",
     //             objectScope: 1
     //         }
     //     ],
     // }]
-    // params.updateModel = {}
-    // params.updateModel.taskModels = [{
-    //     taskId: "",
-    //     processorId: "",
-    //     status: "COMPLETE",
-    // }]
+    params.updateModel = {}
+    params.updateModel.taskModels = [{
+        taskId: "202406120004-0",
+        processorId: "3140010037",
+        status: "COMPLETE",
+    }]
     const res = await Task.saveOrUpdate(params,{ IDS_HOST, IDS_APPID, IDS_SECRET });
     assert.equal(res.errcode, 0)
   });

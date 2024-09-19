@@ -4,6 +4,8 @@ import user from './user.js';
 import task from './task.js';
 import cache from "memory-cache";
 import Debug from "debug";
+import service from "./serviceItem.js";
+import serviceItem from "./serviceItem.js";
 const debug = Debug('ids:debug');
 const warn = Debug('ids:warn');
 
@@ -62,8 +64,10 @@ export const getToken = async (options = {}) => {
 
 export const User = user;
 export const Task = task;
+export const ServiceItem = serviceItem;
 export default {
   getToken,
   User,
   Task,
+  ServiceItem,
 };
