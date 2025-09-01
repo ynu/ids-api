@@ -254,8 +254,8 @@ export const orgSearch = async (options = {}) => {
     options.host = options.host || process.env.IDS_HOST;
     options.appId = options.appId || process.env.IDS_APPID;
     const accessToken = await getToken(options)
-    debug(`${options.host}/minos-platform/user/getUserFace`)
-    const res = await axios.post(`${options.host}/minos-platform/user/getUserFace`, {
+    debug(`${options.host}/minos-platform/org/search`)
+    const res = await axios.post(`${options.host}/minos-platform/org/search`, {
 
     },{
         headers: {
